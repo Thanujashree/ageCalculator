@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Age Calculator</title>
+    <style>
+        body {
+            background-image: url('background.png'); /* Add your background image URL here */
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #age-calculator {
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        .age-output {
+            font-size: 24px;
+            color: red;
+            font-weight: bold;
+        }
+        input[type="date"] {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="age-calculator">
+        <h1>Age Calculator</h1>
+        <p>Enter your borndate:</p>
+        <input type="date" id="birthdate" onchange="calculateAge()">
+        <p class="age-output" id="age"></p>
+    </div>
+
+    <script>
+        function calculateAge() {
+            const birthdate = new Date(document.getElementById("birthdate").value);
+            const today = new Date();
+
+            if (birthdate > today) {
+                document.getElementById("age").textContent = "Please enter a valid date of birth.";
+                return;
+            }
+
+            const ageInMilliseconds = today - birthdate;
+            const ageInDays = ageInMilliseconds / (1000 * 60 * 60 * 24);
+            const ageInMonths = ageInDays / 30.4375; // Approximate average days in a month
+
+            if (ageInDays < 30) {
+                const days = Math.floor(ageInDays);
+                document.getElementById("age").textContent = `You are ${days} day${days === 1 ? '' : 's'} old.`;
+            } else if (ageInMonths < 12) {
+                const months = Math.floor(ageInMonths);
+                document.getElementById("age").textContent = `You are ${months} month${months === 1 ? '' : 's'} old.`;
+            } else {
+                const years = today.getFullYear() - birthdate.getFullYear();
+                if (
+                    today.getMonth() < birthdate.getMonth() ||
+                    (today.getMonth() === birthdate.getMonth() && today.getDate() < birthdate.getDate())
+                ) {
+                    years--;
+                }
+                document.getElementById("age").textContent = `You are ${years} year${years === 1 ? '' : 's'} old.`;
+            }
+        }
+    </script>
+</body>
+</html>
