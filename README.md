@@ -1,6 +1,5 @@
 # Age Calculator
 
-![Age Calculator Screenshot](screenshot.png)
 
 This is a web-based Age Calculator that allows users to calculate their age based on their date of birth. It provides the age in days, months, and years.
 
@@ -20,7 +19,7 @@ This is a web-based Age Calculator that allows users to calculate their age base
 
 ## Demo
 
-You can see a live demo of the Age Calculator [here][(https://your-demo-url.com](https://drive.google.com/file/d/19oOkD3si8tRgep_eL40zl6OpJP-Qfpzg/preview)).
+You can see a live demo of the Age Calculator [here][(https://agecalculator.com](https://drive.google.com/file/d/19oOkD3si8tRgep_eL40zl6OpJP-Qfpzg/preview)).
 
 ## Getting Started
 
@@ -28,6 +27,7 @@ To set up the Age Calculator locally, follow these steps:
 
 1. Clone this repository:
 
+https://github.com/Thanujashree/ageCalculator.git
 
 2. Open the `index.html` file in your web browser to use the Age Calculator.
 
